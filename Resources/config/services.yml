@@ -1,0 +1,23 @@
+parameters:
+    sergeym_videque.provider.videque.class: Sergeym\VidequeBundle\Provider\VidequeProvider
+    sergeym_videque.ffmpeg.class: FFMpeg\FFMpeg
+    sergeym_videque.ffprobe.class: FFMpeg\FFProbe
+
+services:
+    sonata.media.provider.videque:
+        class: %sergeym_videque.provider.videque.class%
+        tags:
+            - { name: sonata.media.provider }
+        arguments:
+            - sonata.media.provider.videque
+            - @sonata.media.filesystem.local
+            - @sonata.media.cdn.server
+            - @sonata.media.generator.default
+            - @sonata.media.thumbnail.format
+            - [ mp4 ]
+            - [ video/mp4 ]
+            - @sonata.media.resizer.simple
+            - @sonata.media.metadata.proxy
+            - @rs_queue.producer
+        calls:
+            - [ setTemplates, [ { helper_thumbnail: SergeymVidequeBundle:Provider:thumbnail.html.twig, helper_view: SergeymVidequeBundle:Provider:video.html.twig } ] ]

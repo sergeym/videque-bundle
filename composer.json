@@ -1,0 +1,32 @@
+{
+  "name": "sergeym/videque-bundle",
+  "type": "library",
+  "description": "Video processing bundle using php-resque",
+  "keywords": [
+    "video",
+    "sonata",
+    "media",
+    "redis",
+    "resque",
+    "queue"
+  ],
+  "homepage": "http://sergeymarin.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sergey Marin",
+      "email": "marin.sergey@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "chrisboulton/php-resque": ">=1.2.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-0": { "Sergeym\\VidequeBundle": "" }
+  },
+  "target-dir": "Sergeym/VidequeBundle"
+}

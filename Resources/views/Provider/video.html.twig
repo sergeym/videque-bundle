@@ -1,0 +1,16 @@
+<div id="container_{{ media.id }}">Video Player Loading...</div>
+
+<script type="text/javascript">
+    jwplayer("container_{{ media.id }}").setup({
+        image: "{{ options.thumbnail }}",
+        width: "{{ 525 }}",
+        height: "{{ 350 }}",
+        sources: {{ options.sources|json_encode|raw }},
+        //skin: "/common/player/glow/glow.xml",
+        modes: [
+            { type: "html5" },
+            { type: "flash", src: "{{ asset('bundles/sergeymvideque/player/jwplayer.flash.swf') }}" },
+            { type: "http" }
+        ]
+    });
+</script>

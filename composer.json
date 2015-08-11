@@ -21,7 +21,7 @@
   ],
   "require": {
     "php": ">=5.3.2",
-    "chrisboulton/php-resque": ">=1.2.0"
+    "mmoreram/rsqueue-bundle": ">=1.1"
   },
   "config": {
     "bin-dir": "bin"

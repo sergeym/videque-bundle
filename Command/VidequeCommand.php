@@ -5,6 +5,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 use FFMpeg\Coordinate\Dimension;
 use FFMpeg\Filters\Video\ResizeFilter;
 use FFMpeg\Format\Video\X264;
+use Sergeym\VidequeBundle\Format\Video\X264SinglePass;
 use Sergeym\VidequeBundle\Provider\VidequeProvider;
 use Sonata\MediaBundle\Model\MediaInterface;
 use Symfony\Bridge\Monolog\Logger;
@@ -117,7 +118,8 @@ class VidequeCommand extends ConsumerCommand
 
                                 $savePath = $this->generatePath($media, $format);
                                 $output->writeln(sprintf('  Resizing media according format %s to %dx%s to %s ...', $format, $_w, $_h, $savePath));
-                                $video->save(new X264($this->getContainer()->getParameter('videque.codec.audio'), $this->getContainer()->getParameter('videque.codec.video')), $savePath);
+                                //$video->save(new X264($this->getContainer()->getParameter('videque.codec.audio'), $this->getContainer()->getParameter('videque.codec.video')), $savePath);
+                                $video->save(new X264SinglePass($this->getContainer()->getParameter('videque.codec.audio'), $this->getContainer()->getParameter('videque.codec.video')), $savePath);
 
                                 // screnshoot generation
                                 $screenshotPath = $this->getProvider($media)->generateThumbPath($media, $format);

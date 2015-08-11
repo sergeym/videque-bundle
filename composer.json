@@ -10,6 +10,7 @@
     "resque",
     "queue"
   ],
+  "minimum-stability": "dev",
   "homepage": "http://sergeymarin.com",
   "license": "MIT",
   "authors": [
